@@ -74,3 +74,4 @@ shuffled_file_df = combined_to_shuffle_df.sample(frac=1).reset_index(drop=True)
 shuffled_file_df.to_json("combined_output_file.json", orient="records")
 
 print(shuffled_file_df)
+print(shuffled_file_df)
