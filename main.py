@@ -1,5 +1,5 @@
 import pandas as pd
-import re
+from function import*
 import logging
 
 # Specify the file path of the Excel file
@@ -23,14 +23,7 @@ file_path = "combined_file.xlsx"
 df = pd.read_excel(file_path, engine='openpyxl')
 
 
-def generate_email(name):
-    names = name.split(',')
-    first_name = names[0].strip()
-    last_name = names[-1].strip()
-    full_name = first_name + " " + last_name
-    full_name = re.sub(r'[^\w\s]', '', full_name)  # Remove special characters
-    email = f"{full_name.replace(' ', '.').lower()}@gmail.com"  # Replace spaces with dots
-    return email
+
 
 # Apply the generate_email function to create a new 'Email Address' column
 df['Email Address'] = df['Student Name'].apply(generate_email)
